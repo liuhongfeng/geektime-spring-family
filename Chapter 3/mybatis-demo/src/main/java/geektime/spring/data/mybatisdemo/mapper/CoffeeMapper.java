@@ -13,8 +13,8 @@ import org.apache.ibatis.annotations.Select;
 public interface CoffeeMapper {
     @Insert("insert into t_coffee (name, price, create_time, update_time)"
             + "values (#{name}, #{price}, now(), now())")
-    @Options(useGeneratedKeys = true)
-    Long save(Coffee coffee);
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int save(Coffee coffee);
 
     @Select("select * from t_coffee where id = #{id}")
     @Results({
