@@ -16,12 +16,22 @@ import java.io.Serializable;
 @Table(name = "T_MENU")
 @Builder
 @Data
+/** 这里需要注意加上 callSuper = true 使其可以调用父类的 ToString 一起来打印 */
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Coffee extends BaseEntity implements Serializable {
+
+    /**
+     * 咖啡名称
+     */
     private String name;
+
+    /**
+     * 咖啡价格
+     */
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount",
             parameters = {@org.hibernate.annotations.Parameter(name = "currencyCode", value = "CNY")})
     private Money price;
+
 }

@@ -6,24 +6,28 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 实体父类注解
+ */
 @MappedSuperclass
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseEntity implements Serializable {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(updatable = false)
     @CreationTimestamp
     private Date createTime;
+
     @UpdateTimestamp
     private Date updateTime;
+
 }
