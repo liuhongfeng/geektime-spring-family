@@ -13,6 +13,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<!-- 不使用 parent 的方式 -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -47,6 +48,7 @@
 				<executions>
 					<execution>
 						<goals>
+							<!-- 需要指定 在 repackage 的时候介入进来 -->
 							<goal>repackage</goal>
 						</goals>
 					</execution>
